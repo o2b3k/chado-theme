@@ -4,6 +4,61 @@
 {{ id_variation }}
 {% for variation in collections.all.products %}
     {% if variation.tags contains id_variation %}
-      {% render 'card-product', card_product: variantion %}
+      <div class="product-card-wrapper card-wrapper underline-links-hover">
+          <div class="card card--standard card--text" style="--ratio-percent: 100%;">
+              <div class="card__inner color-background-2 gradient ratio" style="--ratio-percent: 100%;">
+                  <div class="card__content">
+                      <div class="card__information">
+                          <h3 class="card__heading">
+                              <a role="link" aria-disabled="true" class="full-unstyled-link">
+                                  {{ variantion.title }}
+                              </a>
+                          </h3>
+                      </div>
+                  </div>
+              </div>
+              <div class="card__content">
+                  <div class="card__information">
+                      <h3 class="card__heading h5">
+                          <a role="link" aria-disabled="true" class="full-unstyled-link">
+                              {{ variantion.title }}
+                          </a>
+                      </h3>
+                      <div class="card-information">
+                          <div class="price">
+                              <div class="price__container">
+                                  <div class="price__regular">
+                                      <span class="price-item price-item--regular">
+                                          {{ variation.price | money }}
+                                      </span>
+                                  </div>
+                                  <div class="price__sale">
+                                      <span>
+                                          <s class="price-item price-item--regular">
+                                          </s>
+                                      </span>
+                                      <span class="visually-hidden visually-hidden--inline">Sale price</span>
+                                      <span class="price-item price-item--sale price-item--last">
+                                          {{ variation.price | money }}
+                                      </span>
+                                  </div>
+                                  <small class="unit-price caption hidden">
+                                      <span class="visually-hidden">Unit price</span>
+                                      <span class="price-item price-item--last">
+                                          <span></span>
+                                          <span aria-hidden="true">/</span>
+                                          <span class="visually-hidden">&nbsp;per&nbsp;</span>
+                                          <span>
+                                          </span>
+                                      </span>
+                                  </small>
+                              </div>
+                          </div>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
     {% endif %}
 {% endfor %}
