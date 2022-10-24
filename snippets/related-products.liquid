@@ -4,6 +4,6 @@
 {{ id_variation }}
 {% for variation in collections.all.products %}
     {% if variation.tags contains id_variation %}
-      {{ variation.title }}
+      {% render 'card-product', card_product: variantion %}
     {% endif %}
 {% endfor %}
