@@ -3,7 +3,7 @@
 {% assign id_variation = current_variant.sku | prepend: id %}
 {{ id_variation }}
 {% for variation in collections.all.products %}
-    {% if variation.tags contains id_variation && variant.id != product.id %}
+    {% if variation.tags contains id_variation and variant.id != product.id %}
     <div class="product-card-wrapper card-wrapper underline-links-hover">
         <div class="card card--standard card--text" style="--ratio-percent: 100%;">
             <div class="card__inner color-background-2 gradient ratio" style="--ratio-percent: 150.00000000000003%;">
