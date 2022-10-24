@@ -1,0 +1,9 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign id = 'HM_' %}
+{% assign id_variation = current_variant.sku | prepend: id %}
+{{ id_variation }}
+{% for variation in collections.all.products %}
+    {% if variation.tags contains id_variation %}
+      {{ variation.title }}
+    {% endif %}
+{% endfor %}
